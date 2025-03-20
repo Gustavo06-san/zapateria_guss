@@ -12,14 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detalles', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_venta');
-            $table->unsignedBigInteger('id_producto');
-            $table->timestamps();
-
-            // Llaves foráneas
-            $table->foreign('id_venta')->references('id')->on('ventas')->onDelete('cascade');
-            $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
+            $table->id(); // id de la tabla detalles
+            $table->integer('venta_id'); // Cambiado de id_venta a venta_id
+            $table->integer('producto_id'); // Cambiado de id_producto a producto_id
+            $table->timestamps(); // Registra created_at y updated_at
         });
     }
 

@@ -12,15 +12,15 @@
                     <div class="sb-nav-link-icon"><i class="fa fa-car"></i></div>
                     Clientes
                 </a>
-                <a class="nav-link" href="{{ route('marcas') }}">
+                <a class="nav-link" href="{{ route('productos') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Productos
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('ventas') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Ventas
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('detalles') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-location-dot"></i></div>
                     Detalles
                 </a>
