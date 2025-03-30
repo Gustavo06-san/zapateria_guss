@@ -12,24 +12,36 @@ Detalles
 @endsection
 
 @section('content')
-<h1>Todos los Detalles</h1>
+<h1>Lista de Detalles</h1>
 
-<table class="table">
+<a href="{{ route('detalles.create') }}" class="btn btn-success mb-3">Agregar Detalle</a>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Venta ID</th>
-            <th>Producto ID</th>
-            <th>Creado en</th>
+            <th>Venta</th>
+            <th>Producto</th>
+            <th>Fecha Creación</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($detalles as $detalle)
+        @foreach ($detalles as $detalle)
         <tr>
             <td>{{ $detalle->id }}</td>
             <td>{{ $detalle->venta_id }}</td>
-            <td>{{ $detalle->producto_id }}</td>
+            <td>{{ $detalle->producto ? $detalle->producto->nombre : 'Sin producto' }}</td>
             <td>{{ $detalle->created_at }}</td>
+            <td>
+                <a href="{{ route('detalles.show', $detalle->id) }}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{{ route('detalles.edit', $detalle->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <form action="{{ route('detalles.destroy', $detalle->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Deseas Eliminar el detalle?');">Eliminar</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

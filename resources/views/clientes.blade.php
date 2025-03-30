@@ -14,6 +14,8 @@ Clientes
 @section('content')
 <h1>Todos los Clientes</h1>
 
+<a href="{{ route('clientes.create') }}" class="btn btn-success mb-3">Agregar Cliente</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -22,6 +24,7 @@ Clientes
             <th>Domicilio</th>
             <th>Celular</th>
             <th>Activo</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +35,15 @@ Clientes
             <td>{{ $cliente->domicilio }}</td>
             <td>{{ $cliente->celular }}</td>
             <td>{{ $cliente->isActive ? 'Sí' : 'No' }}</td>
+            <td>
+                <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente?');">Eliminar</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

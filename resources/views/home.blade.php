@@ -50,7 +50,7 @@ Inicio
         </div>
     </div>
 </div>
-<div class="row">
+{{-- <div class="row">
     <div class="col-xl-6">
         <div class="card mb-4">
             <div class="card-header">
@@ -557,6 +557,6 @@ Inicio
             </tbody>
         </table>
     </div>
-</div>
+</div> --}}
 
 @endsection

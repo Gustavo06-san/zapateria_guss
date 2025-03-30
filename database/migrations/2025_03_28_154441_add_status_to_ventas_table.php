@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ventas', function (Blueprint $table) {
-            $table->id();  // id de la tabla ventas
-            $table->integer('cliente_id'); // Cambiado de id_cliente a cliente_id
-            $table->datetime('fecha');
-            $table->decimal('total', 15, 2);
-            $table->timestamps();
+        Schema::table('ventas', function (Blueprint $table) {
+            //
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ventas');
+        Schema::table('ventas', function (Blueprint $table) {
+            //
+        });
     }
 };

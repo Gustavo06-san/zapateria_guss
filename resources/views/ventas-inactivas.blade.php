@@ -1,20 +1,19 @@
 @extends('layouts.main')
 
-@section('top-title', 'Ventas')
+@section('top-title', 'Ventas Inactivas')
 
 @section('title')
-Ventas
+Ventas Inactivas
 @endsection
 
 @section('breadcrumbs')
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item active">Ventas</li>
+<li class="breadcrumb-item"><a href="{{ route('ventas') }}">Ventas</a></li>
+<li class="breadcrumb-item active">Inactivas</li>
 @endsection
 
 @section('content')
-<h1>Lista de Ventas</h1>
-
-<a href="{{ route('ventas.create') }}" class="btn btn-success mb-3">Registrar Venta</a>
+<h1>Ventas Inactivas</h1>
 
 <table class="table table-striped">
     <thead>
@@ -34,12 +33,10 @@ Ventas
             <td>{{ $venta->fecha }}</td>
             <td>${{ number_format($venta->total, 2) }}</td>
             <td>
-                <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-info btn-sm">Ver</a>
-                <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" style="display:inline;">
+                <form action="{{ route('ventas.activar', $venta->id) }}" method="POST" style="display:inline;">
                     @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar venta?');">Eliminar</button>
+                    @method('PUT')
+                    <button type="submit" class="btn btn-success btn-sm">Reactivar</button>
                 </form>
             </td>
         </tr>
