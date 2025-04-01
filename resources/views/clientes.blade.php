@@ -23,8 +23,8 @@ Clientes
             <th>Nombre</th>
             <th>Domicilio</th>
             <th>Celular</th>
-            <th>Activo</th>
-            <th>Acciones</th>
+            {{-- <th>Activo</th>
+            <th>Acciones</th> --}}
         </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@ Clientes
             <td>{{ $cliente->nombre }}</td>
             <td>{{ $cliente->domicilio }}</td>
             <td>{{ $cliente->celular }}</td>
-            <td>{{ $cliente->isActive ? 'Sí' : 'No' }}</td>
+            {{-- <td>{{ $cliente->isActive ? 'Sí' : 'No' }}</td> --}}
             <td>
                 <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info btn-sm">Ver</a>
                 <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">Editar</a>

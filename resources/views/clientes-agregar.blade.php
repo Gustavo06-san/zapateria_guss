@@ -27,13 +27,6 @@ Agregar Cliente
         <label for="celular">Celular:</label>
         <input type="text" name="celular" id="celular" class="form-control" required>
     </div>
-    <div class="form-group">
-        <label for="isActive">Activo:</label>
-        <select name="isActive" id="isActive" class="form-control">
-            <option value="1">Sí</option>
-            <option value="0">No</option>
-        </select>
-    </div>
     <button type="submit" class="btn btn-primary">Agregar Cliente</button>
 </form>
 @endsection

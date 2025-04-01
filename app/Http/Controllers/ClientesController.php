@@ -7,9 +7,9 @@ use App\Models\Cliente;
 
 class ClientesController extends Controller
 {
-    // Listar todos los clientes activos
+    // Listar todos los clientes
     public function index() {
-        $clientes = Cliente::activos()->get();
+        $clientes = Cliente::all();
         return view('clientes', compact('clientes'));
     }
 
@@ -30,10 +30,9 @@ class ClientesController extends Controller
             'nombre' => 'required|string|max:255',
             'domicilio' => 'required|string|max:255',
             'celular' => 'required|string|max:20',
-            'isActive' => 'required|boolean',
         ]);
 
-        Cliente::create($request->all());
+        Cliente::create($request->only(['nombre', 'domicilio', 'celular']));
 
         return redirect()->route('clientes')->with('success', 'Cliente creado correctamente.');
     }
@@ -50,25 +49,18 @@ class ClientesController extends Controller
             'nombre' => 'required|string|max:255',
             'domicilio' => 'required|string|max:255',
             'celular' => 'required|string|max:20',
-            'isActive' => 'required|boolean',
         ]);
 
         $cliente = Cliente::findOrFail($id);
-        $cliente->update($request->all());
+        $cliente->update($request->only(['nombre', 'domicilio', 'celular']));
 
         return redirect()->route('clientes')->with('success', 'Cliente actualizado correctamente.');
     }
 
-    // Eliminado lógico de un cliente
+ // Eliminación lógica de un cliente
     public function destroy($id) {
-        $cliente = Cliente::findOrFail($id);
-        $cliente->update(['isActive' => 0]); // Marcamos como inactivo
-        return redirect()->route('clientes')->with('success', 'Cliente eliminado de manera lógica.');
-    }
-
-    // Listar todos los clientes inactivos
-    public function inactivos() {
-        $clientes = Cliente::where('isActive', 0)->get();
-        return view('clientes-inactivos', compact('clientes'));
+    $cliente = Cliente::findOrFail($id);
+    $cliente->update(['isActive' => 0]); // Marcamos como inactivo
+    return redirect()->route('clientes')->with('success', 'Cliente eliminado de manera lógica.');
     }
 }

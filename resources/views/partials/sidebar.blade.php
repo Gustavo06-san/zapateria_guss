@@ -9,19 +9,19 @@
 
                 <div class="sb-sidenav-menu-heading">Contenido</div>
                 <a class="nav-link" href="{{ route('clientes') }}">
-                    <div class="sb-nav-link-icon"><i class="fa fa-car"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
                     Clientes
                 </a>
                 <a class="nav-link" href="{{ route('productos') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
                     Productos
                 </a>
                 <a class="nav-link" href="{{ route('ventas') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-money-bill"></i></div>
                     Ventas
                 </a>
                 <a class="nav-link" href="{{ route('detalles') }}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-info-circle"></i></div>
                     Detalles
                 </a>
 
@@ -38,7 +38,7 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            Start Bootstrap
+            Zapateria Guss
         </div>
     </nav>
 </div>
